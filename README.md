@@ -74,4 +74,6 @@ cd bin
 aapt add -f tmp.apk classes.dex
 apksigner ~/storage/shared/my.key tmp.apk termux-api.apk -p 123456
 chmod 444 termux-api.apk
+
+su -c "pm install -r /data/data/com.termux/files/home/termux-api/bin/termux-api.apk"
 ```
