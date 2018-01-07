@@ -77,3 +77,8 @@ chmod 444 termux-api.apk
 
 su -c "pm install -r /data/data/com.termux/files/home/termux-api/bin/termux-api.apk"
 ```
+
+## mount to local folder
+```
+sshfs pi@192.168.0.8:/data/data/com.termux/files/home/ -p 8022 /home/master/SamsungS4 -o allow_other,IdentityFile=/home/master/.ssh/id_rsa 
+```
