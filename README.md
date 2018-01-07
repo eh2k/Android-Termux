@@ -34,8 +34,7 @@ vi /system/etc/wifi/WCNSS_qcom_cfg.ini  (i -> gEnableBmps=0 ESC+:wq)
 ## Root SH
 
 ```
-/system/xbin/su -c "/system/bin/sh -"
-/system/xbin/su -c "/system/xbin/bash -"
+su -c bash
 ```
 ## Charging
 
