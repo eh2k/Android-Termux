@@ -110,3 +110,8 @@ adb shell 'su -c "iptables -P OUTPUT ACCEPT"'
 #adb shell 'su -c "iptables-restore < /data/local/iptables-rules"'
 
 ```
+
+## SOCAT "PROXY"
+```
+socat TCP-LISTEN:8080 TCP:localhost:8080
+```
