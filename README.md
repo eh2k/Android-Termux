@@ -26,7 +26,7 @@ Copy ~/.android/adbkey.pub to /data/misc/adb/adb_keys
 ## Enable ADB TCP
 
 ```
-setprop service.adb.tcp.port 5555 && stop adbd && start adbd
+adb shell 'su -c "setprop service.adb.tcp.port 5555 && stop adbd && start adbd"'
 ```
 
 ## WIFI best Ping
