@@ -88,3 +88,23 @@ su -c "pm install -r /data/data/com.termux/files/home/termux-api/bin/termux-api.
 ```
 sshfs pi@192.168.0.8:/data/data/com.termux/files/home/ -p 8022 /home/master/SamsungS4 -o allow_other,IdentityFile=/home/master/.ssh/id_rsa 
 ```
+
+## USB TETHERING 
+```
+adb shell 'su -c "service call connectivity 33 i32 1"'
+
+adb shell 'su -c "ifconfig usb0 192.168.0.7"'
+
+adb shell 'su -c "iptables -F"'
+adb shell 'su -c "iptables -X"'
+adb shell 'su -c "iptables -t nat -F"'
+adb shell 'su -c "iptables -t nat -X"'
+adb shell 'su -c "iptables -t mangle -F"'
+adb shell 'su -c "iptables -t mangle -X"'
+adb shell 'su -c "iptables -P INPUT ACCEPT"'
+adb shell 'su -c "iptables -P FORWARD ACCEPT"'
+adb shell 'su -c "iptables -P OUTPUT ACCEPT"'
+
+#iptables-restore < /data/local/iptables-rules
+
+```
