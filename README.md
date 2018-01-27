@@ -107,6 +107,6 @@ adb shell 'su -c "iptables -P INPUT ACCEPT"'
 adb shell 'su -c "iptables -P FORWARD ACCEPT"'
 adb shell 'su -c "iptables -P OUTPUT ACCEPT"'
 
-#iptables-restore < /data/local/iptables-rules
+#adb shell 'su -c "iptables-restore < /data/local/iptables-rules"'
 
 ```
