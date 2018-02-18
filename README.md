@@ -48,6 +48,7 @@ su -c bash
 
 ```
 echo 0 > /sys/class/power_supply/usb/device/charge
+dumpsys battery set usb 0
 ```
 
 ## Sensors
