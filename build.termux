@@ -1,0 +1,17 @@
+if [ ! -d "./bin" ]; then
+  # Control will enter here if $DIRECTORY doesn't exist.
+mkdir ./bin 
+fi 
+
+
+aapt package -v -f -M ./app/src/main/AndroidManifest.xml -I $PREFIX/share/java/android.jar -J ./app/src/main/java/ -S ./app/src/main/res -m 
+
+ecj -d ./obj -classpath $HOME/../usr/share/java/android.jar -sourcepath ./app/src $(find ./app/src -type f -name "*.java") 
+dx --dex --verbose --output=./bin/classes.dex ./obj 
+
+aapt package -v -f -M ./app/src/main/AndroidManifest.xml -S ./app/src/main/res -F ./bin/tmp.apk 
+cd bin 
+aapt add -f tmp.apk classes.dex 
+apksigner ~/storage/shared/termux.apk.key tmp.apk termux-api.apk -p android
+chmod 444 termux-api.apk
+su -c "pm install -r /data/data/com.termux/files/home/termux-api/bin/termux-api.apk"
